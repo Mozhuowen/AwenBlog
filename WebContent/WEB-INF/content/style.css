@@ -1,0 +1,117 @@
+body {
+	font-family: "Georgia", "Verdana", "宋体";
+	font-size: 12px;
+	line-height: 160%;
+}
+A:link {
+	color: #006699;
+	text-decoration: none
+}
+A:visited {
+	color: #006699;
+	text-decoration: none
+}
+A:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #006699;
+}
+A:active {
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #006699;
+}
+td {
+	font-family: "Georgia", "Verdana", "宋体";
+	font-size: 12px;
+	line-height: 160%;
+	color: #000000;
+}
+TEXTAREA {
+	font-weight: normal;
+	font-size: 12px;
+	font-family: "Verdana", "宋体";
+	padding: 4px;
+}
+
+.menufont {
+	font-family: "Georgia", "Verdana", "宋体";
+	font-size: 14px;
+	line-height: 150%;
+	font-weight: bold;
+}
+INPUT  {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: "Verdana", "宋体";
+	font-size: 12px
+	padding: 3px;
+}
+.title {
+	font-family: "Georgia", "Verdana", "宋体";
+	font-size: 14px;
+	font-weight: bolder;
+}
+.code {
+	font-family: "Courier New";
+	font-size: 12px;
+}
+
+.header {
+	background-color: #DDDDDD;
+	padding: 4px;
+	border: 1px solid #999999;
+}
+.righttable {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #DDDDDD;
+	border-bottom-color: #DDDDDD;
+	background-color: #EEEEEE;
+}
+.f11 {
+	font-size: 11px;
+}
+.newcminfo {
+	font-size: 11px;
+	padding-bottom: 7px;
+	color: #606060;
+	line-height: 13px
+}
+.formfield {
+	border-top: 1px inset;
+	font-size: 12px;
+	border-left: 1px inset;
+	color: black;
+	font-family: "Georgia", "verdana","arial","sans-serif";
+	background-color: #f6f6f6
+}
+.formbutton {
+	border-right: #4f4f4f 1px solid;
+	border-top: #f6f6f6 1px solid;
+	font-size: 12px;
+	background: #dddddd;
+	border-left: #f6f6f6 1px solid;
+	border-bottom: #4f4f4f 1px solid;
+	font-family: verdana,arial,sans-serif
+}
+.firstalt {
+	background-color: #EEEEEE
+}
+.secondalt {
+	background-color: F4F4F4
+}
+.cal_day1 {
+	font-size: 11px; color: #EEEEEE; text-align: center
+}
+.cal_day2 {
+	font-size: 11px; color: #EEEEEE; text-align: center
+}
+.cal_day3 {
+	font-size: 11px; text-align: center
+}
+.cal_day4 {
+	font-size: 11px; text-align: center; background-color: #F4F4F4; border: #DDDDDD 1px solid;
+}

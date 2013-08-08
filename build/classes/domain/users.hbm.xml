@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate的DTD信息 -->
+<!DOCTYPE hibernate-mapping
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain">
+	<!-- 映射rizhidata持久化类-->
+	<class name="users">
+		<!-- 映射标识属性userid -->
+		<id name="userid" column="user_id">
+			<!-- 定义主键生成器策略 -->
+			<generator class="identity"/>
+		</id>
+		<!-- 用于映射普通属性 -->
+		<property name="name" type="string"/>
+		<property name="pass" type="string"/>
+		<property name="privilege" type="int"/>
+		<property name="petname" type="string"/>
+		<property name="sex" type="string"/>
+		<property name="qq" type="string"/>
+		<property name="email" type="string"/>
+		<property name="homepage" type="string"/>
+		<property name="birth_year" type="string"/>
+		<property name="hobby" type="string"/>
+		<property name="profession" type="string"/>
+		<property name="description" type="string"/>
+		<!--1-N关系，由N端控制关联关系，即由rizhidata表控制关联关系-->
+		<set name="rizhi" inverse="true" lazy="false">
+			<key column="rizhi_id"/>
+			<one-to-many class="rizhidata"/>
+		</set>
+	</class>
+</hibernate-mapping>

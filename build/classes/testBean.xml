@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Spring配置文件的Schema信息 -->
+<!-- beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<!-- 定义数据源Bean，使用C3P0数据源实现 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- 指定连接数据库的驱动 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<!-- 指定连接数据库的URL -->
+		<property name="jdbcUrl" value="jdbc:mysql://localhost/hibernate"/>
+		<!-- 指定连接数据库的用户名 -->
+		<property name="user" value="root"/>
+		<!-- 指定连接数据库的密码 -->
+		<property name="password" value="0603"/>
+		<!-- 指定连接数据库连接池的最大连接数 -->
+		<property name="maxPoolSize" value="40"/>
+		<!-- 指定连接数据库连接池的最小连接数 -->
+		<property name="minPoolSize" value="1"/>
+		<!-- 指定连接数据库连接池的初始化连接数 -->
+		<property name="initialPoolSize" value="1"/>
+		<!-- 指定连接数据库连接池的连接的最大空闲时间 -->
+		<property name="maxIdleTime" value="20"/>
+	</bean>
+	<!-- 定义Hibernate的SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 依赖注入数据源，注入正是上面定义的dataSource -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- mappingResouces属性用来列出全部映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<!-- 以下用来列出Hibernate映射文件 -->
+				<value>domain/rizhidata.hbm.xml</value>
+				<value>domain/commens.hbm.xml</value>
+				<value>domain/sorts.hbm.xml</value>
+				<value>domain/users.hbm.xml</value>
+				<value>domain/links.hbm.xml</value>
+			</list>
+		</property>
+		<!-- 定义Hibernate的SessionFactory的属性 -->
+		<property name="hibernateProperties">
+			<!-- 配置Hibernate属性 -->
+			<value>
+			hibernate.dialect=org.hibernate.dialect.MySQLMyISAMDialect
+			hibernate.hbm2ddl.auto=update
+			hibernate.show_sql=true
+			hibernate.format_sql=true;
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 配置DAO组件的模板 -->
+	<bean id="daoTemplate" abstract="true" lazy-init="true"
+		p:sessionFactory-ref="sessionFactory"/>
+		
+	<bean id="commensDao"
+	class="dao.impl.commensDaoHibernate"
+	parent="daoTemplate"/>
+	
+	<bean id="rizhidataDao"
+	class="dao.impl.rizhidataDaoHibernate"
+	parent="daoTemplate"/>
+	
+	<bean id="sortsDao"
+	class="dao.impl.sortsDaoHibernate"
+	parent="daoTemplate"/>
+	
+	<bean id="usersDao"
+	class="dao.impl.usersDaoHibernate"
+	parent="daoTemplate"/>
+	
+	<bean id="linksDao"
+	class="dao.impl.linksDaoHibernate"
+	parent="daoTemplate"/>
+	
+	<!-- 定义业务逻辑组件模板 -->
+	<!-- 为之注入DAO组件 -->
+	<bean id="serviceTemplate" abstract="true" lazy-init="true"
+		p:rizhi-ref="rizhidataDao"
+		p:commen-ref="commensDao"
+		p:sort-ref="sortsDao"
+		p:user-ref="usersDao"
+		p:links-ref="linksDao"
+		/>
+
+	<!-- 定义业务逻辑组件，继承业务逻辑组件的模板 -->
+	<bean id="rizhiOperationImpl"
+		class="service.impl.rizhiOperationImpl"
+		parent="serviceTemplate"/>
+		
+	<bean id="usersOperationImpl"
+		class="service.impl.usersOperationImpl"
+		parent="serviceTemplate"/>
+	<bean id="sortsOperationImpl"
+		class="service.impl.sortsOperationImpl"
+		parent="serviceTemplate"/>
+	<bean id="commensOperationImpl"
+		class="service.impl.commensOperationImpl"
+		parent="serviceTemplate"/>
+	<bean id="linksOperationImpl"
+		class="service.impl.linksOperationImpl"
+		parent="serviceTemplate"/>
+	<bean id="calendar" class="service.impl.calendarOperationImpl">
+		<property name="rizhidao" ref="rizhidataDao"/>
+	</bean>
+		
+	<!-- SPRING管理action注入业务组件 -->
+	<bean id="testaction" class="action.testaction" scope="prototype">
+		<property name="rizhi" ref="rizhiOperationImpl"/>
+	</bean>
+	<bean id="admin_add_article_jsp" class="action.admin_add_article_jsp" scope="prototype">
+		<property name="sort" ref="sortsOperationImpl"/>
+	</bean>
+	<bean id="admin_add_article_action" class="action.admin_add_article_action" scope="prototype">
+		<property name="rizhi" ref="rizhiOperationImpl"/>
+	</bean>
+	<bean id="admin_edit_article_jsp" class="action.admin_edit_article_jsp" scope="prototype">
+		<property name="rizhi" ref="rizhiOperationImpl"/>
+	</bean>
+	<bean id="admin_edit_article_action" class="action.admin_edit_article_action" scope="prototype">
+		<property name="rizhi" ref="rizhidataDao"/>
+		<property name="sort" ref="sortsDao"/>
+	</bean>
+	<bean id="admin_sorts" class="action.admin_sorts" scope="prototype">
+		<property name="sort" ref="sortsOperationImpl"/>
+		<property name="sortdao" ref="sortsDao"/>
+	</bean>
+	<bean id="admin_users" class="action.admin_users" scope="prototype">
+		<property name="user" ref="usersOperationImpl"/>
+		<property name="userr" ref="usersDao"/>
+	</bean>
+	<bean id="admin_comments" class="action.admin_comments" scope="prototype">
+		<property name="comment" ref="commensOperationImpl"/>
+		<property name="commentsdao" ref="commensDao"/>
+	</bean>
+	<bean id="admin_links" class="action.admin_links" scope="prototype">
+		<property name="link" ref="linksOperationImpl"/>
+		<property name="linkdao" ref="linksDao"/>
+	</bean>
+	
+
+</beans>
+

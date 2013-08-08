@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Hibernate的DTD信息 -->
+<!DOCTYPE hibernate-mapping
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain">
+	<!-- 映射links持久化类-->
+	<class name="links">
+		<!-- 映射标识属性linkid -->
+		<id name="linkid" column="link_id">
+			<!-- 定义主键生成器策略 -->
+			<generator class="identity"/>
+		</id>
+		<!-- 用于映射普通属性 -->
+		<property name="sitename" type="string"/>
+		<property name="url" type="string"/>
+		<property name="description" type="string"/>
+		<property name="visible" type="int"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="GBK"?>
+<!-- 指定Struts 2配置文件的DTD信息 -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- Struts 2配置文件的根元素 -->
+<struts>
+	<!-- 配置了系列常量 -->
+	<constant name="struts.i18n.encoding" value="GBK"/>	
+	<constant name="struts.devMode" value="true"/>	
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<!-- 开启动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<package name="lee" extends="struts-default" namespace="/">
+	<interceptors> 
+			<interceptor name="Sesss" class="interceptor.SessInterceptor"/>
+			<interceptor name="Log" class="tongji"/>
+			<interceptor name="Power" class="interceptor.PowerInterceptor"/>
+			<interceptor-stack name="Sess">
+				<interceptor-ref name="Sesss"/>
+				<interceptor-ref name="Power"/>
+				<interceptor-ref name="Log"/>
+			</interceptor-stack>
+	</interceptors>
+		<!-- 定义处理用户请求的Action，指定该Action的实现类-->
+		<action name="cp">
+			<result type="plainText">/WEB-INF/content/cp.css</result>
+		</action>
+		<action name="style">
+			<result type="plainText">/WEB-INF/content/style.css</result>
+		</action>
+		<action name="testaction" class="testaction">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/testresult.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_add_article" class="admin_add_article_jsp">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/admin_add_article_jsp.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_add_article_action" class="admin_add_article_action">
+			<!--配置上传文件保存路径  -->
+			<param name="savepath">C:\Documents and Settings\Administrator\workspace\AwenBlog\upload</param>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/testresult.jsp</result>
+			<result name="update_success">/WEB-INF/content/testresult.jsp</result>
+			<result name="delete_success">/WEB-INF/content/testresult.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_edit_article" class="admin_edit_article_jsp">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/admin_edit_article_jsp.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_edit_article_action" class="admin_edit_article_action">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/admin_edit_article_action.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_sorts" class="admin_sorts">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/admin_sorts_list.jsp</result>
+			<result name="edit_success">/WEB-INF/content/admin_sorts_add.jsp</result>
+			<result name="nulladd">/WEB-INF/content/admin_sorts_add.jsp</result>
+			<result name="edit1_success">/WEB-INF/content/testresult.jsp</result>
+			<result name="delete_success">/WEB-INF/content/testresult.jsp</result>
+			<result name="add_success">/WEB-INF/content/testresult.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_users" class="admin_users">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/admin_users_edit.jsp</result>
+			<result name="update_success">/WEB-INF/content/testresult.jsp</result>
+			<result name="test">/WEB-INF/content/testresult.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_comments" class="admin_comments">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/admin_comments_list.jsp</result>
+			<result name="edit">/WEB-INF/content/admin_comments_edit.jsp</result>
+			<result name="list_content">/WEB-INF/content/admin_comments_list.jsp</result>
+			<result name="delete_success">/WEB-INF/content/testresult.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_links" class="admin_links">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/admin_links_list.jsp</result>
+			<result name="edit">/WEB-INF/content/admin_links_edit.jsp</result>
+			<result name="add_success">/WEB-INF/content/admin_links_list.jsp</result>
+			<result name="delete_success">/WEB-INF/content/testresult.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="" class="index">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/blog_index.jsp</result>
+			<result name="list">/WEB-INF/content/blog_index_list.jsp</result>
+			<result name="sort">/WEB-INF/content/blog_index.jsp</result>
+			<result name="search">/WEB-INF/content/blog_index.jsp</result>
+			<result name="show">/WEB-INF/content/blog_show.jsp</result>
+			<result name="about">/WEB-INF/content/blog_about.jsp</result>
+			<result name="comment">/WEB-INF/content/comment_success.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="login" class="login">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/login_redirect.jsp</result>
+			<result name="logout">/WEB-INF/content/logout_redirect.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_about" class="about">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/testresult.jsp</result>
+			<result name="edit">/WEB-INF/content/admin_about.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<action name="admin_uploadimg" class="admin_uploadimg">
+			<!--配置上传文件保存路径  -->
+			<param name="savepath">C:\Documents and Settings\Administrator\workspace\AwenBlog\WebContent\WEB-INF\imgx</param>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/admin_uploadimg.jsp</result>
+			<result name="upload">/WEB-INF/content/admin_uploadimg.jsp</result>
+			<result name="nofile">/WEB-INF/content/admin_uploadimg.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
+		<!-- 让用户直接访问该应用时列出所有视图页面 -->
+		<action name="*">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<result >/WEB-INF/content/{1}.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>		
+	</package>	
+	<package name="img" extends="struts-default" namespace="/img">
+	<action name="*">
+			<result >/WEB-INF/content/img/{1}.gif</result>
+	</action>
+	</package>
+	<package name="imgx" extends="struts-default" namespace="/imgx">
+	<action name="*_*">
+			<result>/WEB-INF/imgx/{1}.{2}</result>
+	</action>
+	</package>
+</struts>
