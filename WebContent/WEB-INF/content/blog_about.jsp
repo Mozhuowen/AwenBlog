@@ -6,7 +6,7 @@
 <meta name="description" content="awen 博客,m90博客,专注于Java EE、Android、系统架构、Linux和网络安全">
 <META NAME="keywords" CONTENT="java,java ee,android,系统架构,Linux,网络安全">
 <title>{TheBlogTitle} - {SmallTitle}</title>
-<link href="style" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="table-layout:fixed; word-break:break-all">
@@ -24,7 +24,7 @@
     <TD height=30 align="left" valign="top" style="FONT-SIZE: 14px">
       <P><b>View Mode:</b> <a href=""><b>Normal</b></a> | <b><a href="!list">List</a></b></P>
     </TD>
-    <TD align="right" valign="top" style="FONT-SIZE: 14px"><A href=""><B>Home</B></A> | <A 
+    <TD align="right" valign="top" style="FONT-SIZE: 14px"><A href="./"><B>Home</B></A> | <A 
       href="about"><B>About Me</B></A> | <A 
       href=""><B>RSS</B></A> | <A 
       href="test_login"><B>Control Panel</B></A></TD>

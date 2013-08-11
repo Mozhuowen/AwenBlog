@@ -27,7 +27,7 @@
 		<!-- 指定连接数据库的驱动 -->
 		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
 		<!-- 指定连接数据库的URL -->
-		<property name="jdbcUrl" value="jdbc:mysql://localhost/hibernate"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost/hibernate?useUnicode=true&amp;characterEncoding=GBK"/>
 		<!-- 指定连接数据库的用户名 -->
 		<property name="user" value="root"/>
 		<!-- 指定连接数据库的密码 -->

@@ -2,7 +2,7 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<meta HTTP-EQUIV="REFRESH" CONTENT="2;URL=http://m90.me/">
+<meta HTTP-EQUIV="REFRESH" CONTENT="2;URL=./">
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <STYLE type=text/css>
 BODY {
@@ -39,8 +39,8 @@ A:link {
 		<td style="BACKGROUND-IMAGE: url(img/dot_width)" height="1"></td>
 	</tr>
 	<tr>
-	  <td height="120" align="center" nowrap><p><b>刷新页面不能快于 1 秒</b></p>
-	    <p><a href="http://localhost:8888/AwenBlog/">一秒后将自动返回<br>
+	  <td height="120" align="center" nowrap><p><b>刷新页面不能快于 0.5 秒</b></p>
+	    <p><a href="./">一秒后将自动返回<br>
   如果你不想等待或浏览器没有自动返回请点击这里返回! </a></p></td>
 	  </tr>
 	<tr>

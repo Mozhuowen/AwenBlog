@@ -175,7 +175,7 @@ public class admin_add_article_action implements Action
                                                                                                                                            	
 	public String execute() throws Exception
 	{
-		setTip(getTitle()+" "+getSortid()+" "+getContent()+" "+getIscomment()+" "+getAttachmentFileName()+" "+getAttachmentContentType());
+		setTip(getTitle()+" "+getSortid()+" "+/*getContent()+" "+*/getIscomment()+" "+getAttachmentFileName()+" "+getAttachmentContentType());
 		//处理上传文件
 		if(attachment!=null)
 		{

@@ -4,7 +4,7 @@
 <head>
 <title>My Blog</title>
 <meta content="text/html; charset=gb2312" http-equiv="Content-Type">
-<link rel="stylesheet" href="./cp" type="text/css">
+<link rel="stylesheet" href="./cp.css" type="text/css">
 
 </head>
 <body leftmargin="20" topmargin="20" marginwidth="20" marginheight="20"  style="table-layout:fixed; word-break:break-all">

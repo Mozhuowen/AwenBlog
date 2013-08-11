@@ -5,11 +5,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <meta name="description" content="awen 博客,m90博客,专注于Java EE、Android、系统架构、Linux和网络安全">
 <META NAME="keywords" CONTENT="java,java ee,android,系统架构,Linux,网络安全">
-<title>{TheBlogTitle} - {SmallTitle}</title>
+<title>Awen's Blog-${currentrizhi.title}</title>
 <link href="style" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./editor/themes/default/default.css" />
+<link rel="stylesheet" href="./editor/plugins/code/prettify.css" />
 </head>
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="table-layout:fixed; word-break:break-all">
+<script charset="utf-8" src="./editor/kindeditor.js"></script>
+<script charset="utf-8" src="./editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="../plugins/code/prettify.js"></script>
 <TABLE width=870 border=0 align="center" cellPadding=0 cellSpacing=0>
   <TR>
     <TD><DIV style="FONT-SIZE: 18px; MARGIN: 25px 0px 7px; FONT-FAMILY: Georgia, verdana, Arial, Helvetica, sans-serif;font-weight: bolder;"><A href="./">Awen(阿文)'s Blog</A></DIV>
@@ -61,7 +66,7 @@
          </td>
   </tr>
   <tr>
-    <td style="padding-top: 15px;padding-bottom: 15px;"> <SPAN style="DISPLAY: inline! important; FLOAT: none; WORD-SPACING: 0px; FONT: 14px/25px 微软雅黑, Tahoma, Verdana, 宋体; TEXT-TRANSFORM: none; COLOR: rgb(0,0,0); TEXT-INDENT: 0px; WHITE-SPACE: normal; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); orphans: 2; widows: 2; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">${currentrizhi.content}</SPAN></td>
+    <td style="padding-top: 15px;padding-bottom: 15px;"> ${currentrizhi.content}</td>
   </tr>
   <tr>
     <td style="padding-top: 15px;padding-bottom: 15px;"></td>

@@ -3,7 +3,7 @@
 <html>
 <script language="javascript">
 function test(){
-window.location="http://m90.me:8888/AwenBlog/admin_test";
+window.location="./admin_test";
 }
 setTimeout("test()",200);
 </script> 

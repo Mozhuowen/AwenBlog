@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <meta name="description" content="awen 博客,m90博客,专注于Java EE、Android、系统架构、Linux和网络安全">
 <META NAME="keywords" CONTENT="java,java ee,android,系统架构,Linux,网络安全">
-<title>{TheBlogTitle} - {SmallTitle}</title>
+<title>Awen's Blog</title>
 <link href="style" rel="stylesheet" type="text/css">
 </head>
 

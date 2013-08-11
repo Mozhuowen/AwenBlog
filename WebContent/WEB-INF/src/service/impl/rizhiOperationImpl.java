@@ -44,7 +44,7 @@ public class rizhiOperationImpl implements rizhiOperation
 	//增加日志方法
 	public int addRizhi(String title,String author,Calendar time,String precontent,String content,String[] sortss)
 	{
-		users u = user.findByName(author).get(0);
+		users u = user.findByprivilege(603);
 		rizhidata r = new rizhidata(u,title,time,content,precontent);
 		rizhi.save(r);        //先持久化，为方便下面sorts表添加相关数据库键
 		Set<sorts> sortSet = new HashSet();
@@ -72,7 +72,7 @@ public class rizhiOperationImpl implements rizhiOperation
 	
 	public int addRizhi(String title,String author,Calendar time,String precontent,String content,int[] sortid)
 	{
-		users u = user.findByName(author).get(0);
+		users u = user.findByprivilege(603);
 		if (u == null)
 			return ADD_FAIL;
 		rizhidata r = new rizhidata(u,title,time,content,precontent);
@@ -89,7 +89,7 @@ public class rizhiOperationImpl implements rizhiOperation
 	
 	public int addRizhi(String title,String author,Calendar time,String precontent,String content,int[] sortsid,int iscomment,int visible,int stick,String filename)
 	{
-		users u = user.findByName(author).get(0);
+		users u = user.findByprivilege(603);
 		if (u == null)
 			return ADD_FAIL;
 		rizhidata r = new rizhidata(u,title,time,content,precontent,iscomment,visible,stick,filename);
@@ -109,7 +109,7 @@ public class rizhiOperationImpl implements rizhiOperation
 		rizhidata tmpRizhi = rizhi.get(rizhiId);
 		tmpRizhi.setTitle(title);
 		//获取用户对象
-		users tmpU = user.findByName(author).get(0);
+		users tmpU = user.findByprivilege(603);
 		tmpRizhi.setUser(tmpU);
 		tmpRizhi.setTime(time);
 		tmpRizhi.setPrecontent(precontent);
@@ -135,7 +135,7 @@ public class rizhiOperationImpl implements rizhiOperation
 		rizhidata tmpRizhi = rizhi.get(rizhiId);
 		tmpRizhi.setTitle(title);
 		//获取用户对象
-		users tmpU = user.findByName(author).get(0);
+		users tmpU = user.findByprivilege(603);
 		tmpRizhi.setUser(tmpU);
 		tmpRizhi.setTime(time);
 		tmpRizhi.setPrecontent(precontent);

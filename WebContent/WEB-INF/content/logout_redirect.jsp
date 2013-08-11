@@ -49,7 +49,7 @@ A:link {
 </table>
 <script language="javascript">
 function test(){
-window.location="http://m90.me:8888/";
+window.location="./";
 }
 setTimeout("test()",2000);
 </script> 

@@ -11,7 +11,9 @@
 	<constant name="struts.configuration.xml.reload" value="true"/>
 	<!-- 开启动态方法调用 -->
 	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<constant name="struts.multipart.maxSize" value="5242880"/>
 	<package name="lee" extends="struts-default" namespace="/">
+	<!-- 定义拦截器 -->
 	<interceptors> 
 			<interceptor name="Sesss" class="interceptor.SessInterceptor"/>
 			<interceptor name="Log" class="tongji"/>
@@ -122,6 +124,19 @@
 			<interceptor-ref name="defaultStack"/>
 			<interceptor-ref name="Sess"/>
 		</action>
+		<action name="index" class="index">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="success">/WEB-INF/content/blog_index.jsp</result>
+			<result name="list">/WEB-INF/content/blog_index_list.jsp</result>
+			<result name="sort">/WEB-INF/content/blog_index.jsp</result>
+			<result name="search">/WEB-INF/content/blog_index.jsp</result>
+			<result name="show">/WEB-INF/content/blog_show.jsp</result>
+			<result name="about">/WEB-INF/content/blog_about.jsp</result>
+			<result name="comment">/WEB-INF/content/comment_success.jsp</result>
+			<result name="refresh">/WEB-INF/content/blog_refresh.jsp</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="Sess"/>
+		</action>
 		<action name="login" class="login">
 			<result name="error">/WEB-INF/content/error.jsp</result>
 			<result name="success">/WEB-INF/content/login_redirect.jsp</result>
@@ -164,6 +179,11 @@
 	<package name="imgx" extends="struts-default" namespace="/imgx">
 	<action name="*_*">
 			<result>/WEB-INF/imgx/{1}.{2}</result>
+	</action>
+	</package>
+	<package name="editor" extends="struts-default" namespace="/editor">
+	<action name="*">
+			<result>/WEB-INF/content/test/{1}.rar</result>
 	</action>
 	</package>
 </struts>

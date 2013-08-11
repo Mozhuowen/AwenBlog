@@ -5,11 +5,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <meta name="description" content="awen 博客,m90博客,专注于Java EE、Android、系统架构、Linux和网络安全">
 <META NAME="keywords" CONTENT="java,java ee,android,系统架构,Linux,网络安全">
-<title>{TheBlogTitle} - {SmallTitle}</title>
-<link href="style" rel="stylesheet" type="text/css">
+<title>Awen's Blog</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="table-layout:fixed; word-break:break-all">
+<script charset="utf-8" src="./editor/kindeditor.js"></script>
+<script charset="utf-8" src="./editor/lang/zh_CN.js"></script>
 <TABLE width=870 border=0 align="center" cellPadding=0 cellSpacing=0>
   <TR>
     <TD><DIV style="FONT-SIZE: 18px; MARGIN: 25px 0px 7px; FONT-FAMILY: Georgia, verdana, Arial, Helvetica, sans-serif;font-weight: bolder;"><A href="./">Awen(阿文)'s Blog</A></DIV>

@@ -5,7 +5,8 @@
 <title>My Blog</title>
 <meta content="text/html; charset=gb2312" http-equiv="Content-Type">
 <link rel="stylesheet" href="./cp" type="text/css">
-
+<link rel="stylesheet" href="./editor/themes/default/default.css" />
+<link rel="stylesheet" href="./editor/plugins/code/prettify.css" />
 </head>
 <body leftmargin="20" topmargin="20" marginwidth="20" marginheight="20"  style="table-layout:fixed; word-break:break-all">
 <script language="JavaScript">
@@ -27,23 +28,43 @@
 			return true;
 	}
 </script>
+<script charset="utf-8" src="./editor/kindeditor.js"></script>
+<script charset="utf-8" src="./editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="./editor/plugins/code/prettify.js"></script>
+<script>
+		var editor;
+		
+		KindEditor.ready(function(K) {
+			var options = {
+					cssPath : './editor/plugins/code/prettify.css',
+					uploadJson : './editor/jsp/upload_json.jsp',
+					fileManagerJson : './editor/jsp/file_manager_json.jsp',
+					allowFileManager : true,
+			        filterMode : true
+			};
+			editor = K.create('textarea[name="content"]', options);
+			
+		});
+		function submit0()
+		{
+			// 取得HTML内容
+			html = editor.html();
+
+			// 同步数据后可以直接取得textarea的value
+			editor.sync();
+			html = document.getElementById('editor_id').value; // 原生API
+			html = K('#editor_id').val(); // KindEditor Node API
+			html = $('#editor_id').val(); // jQuery
+
+			// 设置HTML内容
+			editor.html('HTML内容');
+		}
+	</script>
 <table cellpadding="0" cellspacing="0" border="0" align="center" width="96%" class="tblborder">
 <tr>
-<td class="tdborder">		<script language="Javascript1.2">
-		<!-- // load htmlarea
-		_editor_url = "../htmlarea/";                     // URL to htmlarea files
-		var win_ie_ver = parseFloat(navigator.appVersion.split("MSIE")[1]);
-		if (navigator.userAgent.indexOf('Mac')        >= 0) { win_ie_ver = 0; }
-		if (navigator.userAgent.indexOf('Windows CE') >= 0) { win_ie_ver = 0; }
-		if (navigator.userAgent.indexOf('Opera')      >= 0) { win_ie_ver = 0; }
-		if (win_ie_ver >= 5.5) {
-		document.write('<scr' + 'ipt src="' +_editor_url+ 'editor.js"');
-		document.write(' language="Javascript1.2"></scr' + 'ipt>');
-		} else { document.write('<scr'+'ipt>function editor_generate() { return false; }</scr'+'ipt>'); }
-		// -->
-		</script>
+<td class="tdborder">		
 <table width="100%" align="center" border="0" cellspacing="1" cellpadding="4">
-<form action="admin_add_article_action" enctype="multipart/form-data" method="post" name="form" onSubmit="return ProcessArticle()">
+<form name="form" action="admin_add_article_action" method="post" onSubmit="return submit0()">
 <tr id="cat">
 	<td class="tblhead" colspan="2"><b>添加文章</b></td>
 </tr>
@@ -66,15 +87,10 @@
 </tr>
 <tr class="secondalt" nowrap>
 	<td valign="top">文章内容:</td>
-	<td><textarea class="formfield" type="text" name="content" cols="80" rows="20" ></textarea></td>
+	<!-- 正文输入框 -->
+	<td><textarea id="editor_id" name="content" style="width:700px;height:300px;">
+	</textarea></td>
 </tr>
-		<script language="JavaScript1.2" defer>
-		var config = new Object(); // create new config object
-		config.width = "80%";
-		config.height = "300";
-		config.debug = 0;
-		editor_generate('content',config);
-		</script>
 </td></tr>
 <tr class="firstalt">
 	<td valign="top">是否允许访客对本文进行评论?</td>

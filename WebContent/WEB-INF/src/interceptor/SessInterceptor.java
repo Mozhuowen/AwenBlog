@@ -30,7 +30,7 @@ public class SessInterceptor
 				testtime = Calendar.getInstance();
 				testtime.setTimeInMillis(1000);
 			}
-			if(Calendar.getInstance().getTimeInMillis()-testtime.getTimeInMillis()<1000)
+			if(Calendar.getInstance().getTimeInMillis()-testtime.getTimeInMillis()<500)
 				return "refresh";
 		}	  
 		System.out.println("Sess start!");
