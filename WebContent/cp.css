@@ -1,0 +1,67 @@
+BODY {
+	BACKGROUND-COLOR: #F5F5F5; 
+	COLOR: #3F3849; 
+	line-height: 140%;
+	font-family: "Verdana", "Tahoma", "宋体";
+	FONT-SIZE: 12px;
+}
+
+UL		{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 12px; line-height: 140%;}
+LI		{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 12px; line-height: 140%;}
+P		{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 12px; line-height: 140%;}
+TD		{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 12px; line-height: 140%;}
+
+A:LINK		{COLOR: #3F3849; TEXT-DECORATION: none}
+A:VISITED	{COLOR: #3F3849; TEXT-DECORATION: none}
+A:HOVER		{COLOR: #FFFFFF; BACKGROUND-COLOR: #5a7594}
+A:ACTIVE	{COLOR: #FFFFFF; BACKGROUND-COLOR: #5a7594}
+
+FORM		{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 12px}
+SELECT		{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; COLOR: #51485F; FONT-SIZE: 12px}
+INPUT		{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; COLOR: #51485F; FONT-SIZE: 12px}
+TEXTAREA	{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; COLOR: #51485F; FONT-SIZE: 12px}
+
+#submitrow INPUT	{BACKGROUND-COLOR:#40364d; COLOR: #f5d300; FONT-WEIGHT: bold}
+.firstalt	{BACKGROUND-COLOR: #EFEFEF}
+.secondalt	{BACKGROUND-COLOR: #E4E4E4}
+.tblhead	{BACKGROUND-COLOR: #5a7594; COLOR:#FFFFFF; FONT-SIZE:12px}
+.tblborder	{border: 1px solid #5a7594}
+.tdborder	{BACKGROUND-COLOR: #FFFFFF}
+
+#navbody 		{COLOR: #3F3849; FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 12px; BACKGROUND-COLOR: #51485F}
+#navbody TD 	{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 12px}
+#navbody A:LINK	{COLOR: #9A91AA; FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 12px}
+#navbody A:VISITED	{COLOR: #9A91AA; FONT-FAMILY: "Verdana", "Tahoma", "宋体"}
+#navbody A:HOVER	{COLOR: #F5D300; FONT-FAMILY: "Verdana", "Tahoma", "宋体"; BACKGROUND-COLOR: #40364d}
+#navbody A:ACTIVE	{COLOR: #F5D300; FONT-FAMILY: "Verdana", "Tahoma", "宋体"; BACKGROUND-COLOR: #40364d}
+#navbody .tblhead	{COLOR: #BCB6CD; FONT-FAMILY: "Verdana", "Tahoma", "宋体"}
+
+.size1		{FONT-SIZE: 12px}
+.size2		{FONT-SIZE: 11pt} 
+.size3		{FONT-FAMILY: "Verdana", "Tahoma", "宋体"; FONT-SIZE: 11px} 
+
+.space{
+	PADDING-TOP: 4px; 
+	PADDING-BOTTOM: 4px; 
+	PADDING-LEFT: 5px; 
+	MARGIN-TOP: 4px; 
+	MARGIN-BOTTOM: 4px
+	MARGIN-LEFT: 5px
+}
+.formfield {
+	border-top: 1px inset;
+	font-size: 12px;
+	border-left: 1px inset;
+	color: black;
+	font-family: "verdana","arial","sans-serif";
+	background-color: #f6f6f6
+}
+.formbutton {
+	border-right: #4f4f4f 1px solid;
+	border-top: #f6f6f6 1px solid;
+	font-size: 12px;
+	background: #dddddd;
+	border-left: #f6f6f6 1px solid;
+	border-bottom: #4f4f4f 1px solid;
+	font-family: "verdana","arial","sans-serif";
+}
