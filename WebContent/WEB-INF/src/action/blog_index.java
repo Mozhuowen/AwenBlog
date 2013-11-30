@@ -791,10 +791,10 @@ public class blog_index implements Action
 	public List<String> getArchivesStr() throws Exception
 	{
 		Calendar starttime = Calendar.getInstance();
-		starttime.set(2013, 7, 1, 0, 0);
+		starttime.set(2013, 6, 1, 0, 0);  //2013.7.1为开始时间
 		Calendar now = Calendar.getInstance();
 		List<String> tmplist = new ArrayList();
-		while (!(starttime.get(Calendar.MONTH)>now.get(Calendar.MONTH)+1))
+		while (starttime.get(Calendar.MONTH)<=now.get(Calendar.MONTH))
 		{
 			String str = calendar.getCurrentyearmonthstr(starttime.get(Calendar.YEAR), starttime.get(Calendar.MONTH), "reverse");
 			tmplist.add(str);

@@ -14,8 +14,9 @@ public class KindeditorFilter extends StrutsPrepareAndExecuteFilter {
 	        HttpServletRequest request = (HttpServletRequest) req;  
 	        String URI = request.getRequestURI(); 
 	        String[] uriArray = URI.split("/editor/"); 
+	        String[] neuqkebiao = URI.split("/neuqkebiao/");
 	        int arrayLen = uriArray.length; 
-	        if (arrayLen >= 2) { 
+	        if (arrayLen >= 2 || neuqkebiao.length>=2) { 
 	            chain.doFilter(req, res);  
 	        }else { 
 	            super.doFilter(req, res, chain);   

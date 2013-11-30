@@ -35,9 +35,9 @@ public class LogInterceptor
 		String ip = request.getRemoteAddr();      //获取客户IP
 		tongji tj = new tongji(Calendar.getInstance(),ip,url);
 		tongji.save(tj);   //持久化数据
-		System.out.println("Log start!");
+	//	System.out.println("Log start!");
 		String result = invocation.invoke();
-		System.out.println("Log end!");
+	//	System.out.println("Log end!");
 		return result;
 	}
 }

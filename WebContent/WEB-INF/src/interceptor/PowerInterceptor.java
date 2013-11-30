@@ -25,10 +25,10 @@ public class PowerInterceptor
 			if (!check(ip))
 				return "error";
 		}
-		System.out.println(path);
-		System.out.println("Power start!");
+	//	System.out.println(path);
+	//	System.out.println("Power start!");
 		String result = invocation.invoke();
-		System.out.println("Power end!");
+	//	System.out.println("Power end!");
 		return result;
 	}
 	

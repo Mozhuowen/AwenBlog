@@ -1,3 +1,5 @@
-#Sat Aug 10 21:28:29 CST 2013
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/web.xml=GBK
+encoding//WebContent/editor=UTF-8
+encoding//WebContent/editor/kindeditor-all.js=UTF-8
+encoding//WebContent/editor/lang=UTF-8

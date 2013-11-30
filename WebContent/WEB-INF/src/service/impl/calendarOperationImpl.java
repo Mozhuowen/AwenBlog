@@ -219,9 +219,9 @@ public class calendarOperationImpl implements calendarOperation
 	}
 	public String getCurrentyearmonthstr(int year,int month,String reverse)
 	{
-		month -=1;
-		String[] monthStr = {"January","February","March","April","May","June","July","August","September","October"
-				,"November","December"};
+	//	System.out.println(month);
+	//	month -=1;
+		String[] monthStr = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 		return monthStr[month]+" "+year;
 	}
 }

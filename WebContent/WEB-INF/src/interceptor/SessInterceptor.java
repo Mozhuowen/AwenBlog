@@ -33,10 +33,10 @@ public class SessInterceptor
 			if(Calendar.getInstance().getTimeInMillis()-testtime.getTimeInMillis()<500)
 				return "refresh";
 		}	  
-		System.out.println("Sess start!");
+	//	System.out.println("Sess start!");
 		//交给下个拦截器
 		String result = invocation.invoke();
-		System.out.println("Sess end!");
+	//	System.out.println("Sess end!");
 		//记录访问时间
 		ctx.getSession().put("time", Calendar.getInstance());
 		return result;
