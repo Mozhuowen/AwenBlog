@@ -27,14 +27,14 @@ public class calendarOperationImpl implements calendarOperation
 		Map<String,String> rmap = new HashMap<String ,String>();
 		//rmap为日志的时间组成的时间集
 		List<Calendar> r = rizhidao.findByMonth("gettime",year, month);
-		System.out.println("r sql size():"+r.size());
+		//System.out.println("r sql size():"+r.size());
 		for (int i = 0;i<r.size();i++)
 		{
 			String day = String.valueOf(r.get(i).get(Calendar.DAY_OF_MONTH));
 			rmap.put(day, day);
 			
 		}
-		System.out.println("rmap size:"+rmap.size());
+		//System.out.println("rmap size:"+rmap.size());
 		
 		rightnow.set(year,month,1,0,0);    //设置为每月开始第一天，以便于遍历
 		while (rightnow.get(Calendar.MONTH) == month)    //获取当月的每一天,遍历开始
